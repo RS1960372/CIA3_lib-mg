@@ -34,84 +34,48 @@ class maincode:
          self.ab = cursor.fetchone()
          if self.ab!=None:
                #messagebox.showinfo('Library System',ab[1])
-             self.under_fm=Frame(root,height=500,width=900,bg='#fff')
+               #--after login user page--#
+             self.under_fm=Frame(root,height=500,width=900,bg='Black')
              self.under_fm.place(x=0,y=0)
-             self.fm2=Frame(root,bg='#0f624c',height=80,width=900)
+             self.fm2=Frame(root,bg='Black',height=80,width=900)
              self.fm2.place(x=0,y=0)
 
              #  lgo=Canvas(fm2,bg='#0f624c',height=200,width=100,bd=4,relief='flat')
              #  lgo.place(x=0,y=0)
 
-             self.lbb=Label(self.fm2,bg='#0f624c')
+             self.lbb=Label(self.fm2,bg='Grey')
              self.lbb.place(x=15,y=5)
              self.ig=PhotoImage(file='library.png')
              self.lbb.config(image=self.ig)
-             self.lb3=Label(self.fm2,text='DASHBOARD',fg='White',bg='#0f624c',font=('Arial',30,'bold'))
-             self.lb3.place(x=325,y=17)
+             self.lb3=Label(self.fm2,text='LIBRARY DATA MANAGEMENT SYSTEM ',fg='Black',bg='GREY',font=('Arial',30,'bold'))
+             self.lb3.place(x=100,y=17)
 
 
-             #----------------------------name------------------------
+             #-- for name in loged in page --#
 
-             self.name=Label(root,text="Name : ",bg='#fff',fg="black",font=('Arial',10,'bold'))
+             self.name=Label(root,text="NAME : ",bg='GREY',fg="black",font=('Arial',10,'bold'))
              self.name.place(x=5,y=83)
-             self.name1=Label(root,text=self.ab[1],fg='black',bg='#fff',font=('Arial',10,'bold'))
+             self.name1=Label(root,text=self.ab[1],fg='black',bg='grey',font=('Arial',10,'bold'))
              self.name1.place(x=60,y=83)
 
              #------------------------date-------------------------
 
              self.today=date.today()
-             self.dat=Label(root,text='Date : ',bg='#fff',fg='black',font=('Arial',10,'bold'))
+             self.dat=Label(root,text='Date : ',bg='Grey',fg='black',font=('Arial',10,'bold'))
              self.dat.place(x=740,y=83)
-             self.dat2 = Label(root, text=self.today, bg='#fff', fg='black', font=('Arial', 10, 'bold'))
+
+             self.dat2 = Label(root, text=self.today, bg='Grey', fg='black', font=('Arial', 10, 'bold'))
              self.dat2.place(x=790, y=83)
 
              self.cur()
 
-         else:
-               messagebox.showerror('Library System', 'Your ID or Password is not Valid')
+         else: #--else for invalid login--#
+               messagebox.showerror('LDMS', 'Invalid ID/Password')
              #---------------------------------------------------------
      def cur(self):
-             self.fm3=Frame(root,bg='#fff',width=900,height=390)
+             self.fm3=Frame(root,bg='black',width=900,height=390)
              self.fm3.place(x=0,y=110)
 
-             #------------------------Clock---------------------------
-
-             def clock():
-                 h = str(time.strftime("%H"))
-                 m = str(time.strftime("%M"))
-                 s = str(time.strftime("%S"))
-
-                 if int(h) >=12 and int(m) >=0:
-                       self.lb7_hr.config(text="PM")
-
-                 #if int(h) > 12:
-                     #h = str(int(h) // 12)
-
-                 self.lb1_hr.config(text=h)
-                 self.lb3_hr.config(text=m)
-                 self.lb5_hr.config(text=s)
-
-                 self.lb1_hr.after(200, clock)
-
-             self.lb1_hr = Label(self.fm3, text='12', font=('times new roman', 20, 'bold'), bg='#fc1c1c', fg='white')
-             self.lb1_hr.place(x=560, y=0, width=60, height=30)
-
-
-             self.lb3_hr = Label(self.fm3, text='05', font=('times new roman', 20, 'bold'), bg='#0ee38b', fg='white')
-             self.lb3_hr.place(x=630, y=0, width=60, height=30)
-
-
-             self.lb5_hr = Label(self.fm3, text='37', font=('times new roman', 20, 'bold'), bg='#2b1dff', fg='white')
-             self.lb5_hr.place(x=700, y=0, width=60, height=30)
-
-
-             self.lb7_hr = Label(self.fm3, text='AM', font=('times new roman', 17, 'bold'), bg='#2b1dff', fg='white')
-             self.lb7_hr.place(x=770, y=0, width=60, height=30)
-
-
-             clock()
-
-             #-------------------------------clock closed------------------------
 
 
              self.canvas8 = Canvas(self.fm3, bg='black', width=400, height=300)
@@ -119,7 +83,7 @@ class maincode:
              self.photo9=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\bb.png")
              self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
 
-             self.develop=Label(self.fm3,text='Library Managment System Arunesh Test',bg='#fff',fg='blue',
+             self.develop=Label(self.fm3,text='Library Managment System Test',bg='#fff',fg='blue',
                                font=('Cursive',12,'italic','bold'))
              self.develop.place(x=600,y=350)
 
