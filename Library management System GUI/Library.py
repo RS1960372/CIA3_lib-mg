@@ -10,15 +10,17 @@ from datetime import datetime
 from datetime import timedelta
 import smtplib
 
-db=sqlite3.connect('admin.db')
-dd=sqlite3.connect('storebook.db')
-dc=sqlite3.connect('students.db')
-
+db=sqlite3.connect('admin.db') #login data table
+dd=sqlite3.connect('storebook.db') #item data table
+dc=sqlite3.connect('students.db') #student data table
+#--login pg tk top panel--#
 root = Tk()
 root.title("LDMS")
-root.iconbitmap("aa.ico")
+root.iconbitmap("app-tl-icon.ico")
 root.geometry("900x500+300+150")
 root.resizable(0, 0)
+#----login pg tk top panel end----#
+
 
 class maincode:
 
