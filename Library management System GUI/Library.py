@@ -15,7 +15,7 @@ dd=sqlite3.connect('storebook.db')
 dc=sqlite3.connect('students.db')
 
 root = Tk()
-root.title("Library Management System")
+root.title("LDMS")
 root.iconbitmap("aa.ico")
 root.geometry("900x500+300+150")
 root.resizable(0, 0)
@@ -117,13 +117,13 @@ class maincode:
              self.photo9=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\bb.png")
              self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
 
-             self.develop=Label(self.fm3,text='Library Managment System',bg='#fff',fg='blue',
+             self.develop=Label(self.fm3,text='Library Managment System Arunesh Test',bg='#fff',fg='blue',
                                font=('Cursive',12,'italic','bold'))
              self.develop.place(x=600,y=350)
 
              #-----------------addbutton-----------------
 
-             self.bt1=Button(self.fm3,text='  Add Books',fg='#fff',bg='#ff0076',font=('Arial',15,'bold'),width=170,
+             self.bt1=Button(self.fm3,text='  ADD ITEM',fg='#fff',bg='#ff0076',font=('Arial',15,'bold'),width=170,
                           height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2')
              self.bt1.place(x=40,y=40)
              self.logo = PhotoImage(file='bt1.png')
