@@ -15,7 +15,7 @@ dd=sqlite3.connect('storebook.db') #item data table
 dc=sqlite3.connect('students.db') #student data table
 #--login pg tk top panel--#
 root = Tk()
-root.title("LDMS")
+root.title("Library Data Management System")
 root.iconbitmap("app-tl-icon.ico")
 root.geometry("900x500+300+150")
 root.resizable(0, 0)
@@ -73,7 +73,7 @@ class maincode:
                messagebox.showerror('LDMS', 'Invalid ID/Password')
              #---------------------------------------------------------
      def cur(self):
-             self.fm3=Frame(root,bg='black',width=900,height=390)
+             self.fm3=Frame(root,bg='grey',width=900,height=390)
              self.fm3.place(x=0,y=110)
 
 
@@ -1020,20 +1020,20 @@ class maincode:
 
      def code(self):
 
-         self.fm=Frame(root,height=500,width=900,bg='white')
+         self.fm=Frame(root,height=500,width=900,bg='black')
          self.fm.place(x=0,y=0)
 
-         self.canvas=Canvas(self.fm,height=500,width=900,bg='#22224b')
+         self.canvas=Canvas(self.fm,height=500,width=900,bg='Black')
          self.canvas.place(x=0,y=0)
 
-         self.photo=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\images (17).png")
-         self.canvas.create_image(70,45,image=self.photo,anchor=NW)
+         #self.photo=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\images (17).png")
+         #self.canvas.create_image(70,45,image=self.photo,anchor=NW)
 
-         self.fm1=Frame(self.canvas,height=260,width=300,bg='white',bd=3,relief='ridge')
-         self.fm1.place(x=300,y=170)
+         self.fm1=Frame(self.canvas,height=300,width=300,bg='Grey',bd=3,relief='ridge')
+         self.fm1.place(x=300,y=110)
 
-         self.photo1=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\dd.png")
-         self.canvas.create_image(330,5,image=self.photo1,anchor=NW)
+        # self.photo1=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\dd.png")
+         #self.canvas.create_image(330,5,image=self.photo1,anchor=NW)
 
 
 
@@ -1050,7 +1050,7 @@ class maincode:
          self.e2.place(x=100,y=100)
 
 
-         self.btn1=Button(self.fm1,text='  login',fg='white',bg='red',width=100,font=('Arial',11,'bold'),
+         self.btn1=Button(self.fm1,text='  Login',fg='Grey',bg='Black',width=100,font=('Arial',11,'bold'),
                  activebackground='white',activeforeground='black',command=self.login,bd=3,relief='flat',cursor='hand2')
          self.btn1.place(x=25,y=160)
          self.logo = PhotoImage(file='user.png')
@@ -1059,7 +1059,7 @@ class maincode:
          self.btn1.config(image=self.small_logo)
 
 
-         self.btn2=Button(self.fm1,text='  Clear',fg='white',bg='blue',width=100,font=('Arial',11,'bold'),
+         self.btn2=Button(self.fm1,text='  Clear',fg='white',bg='Black',width=100,font=('Arial',11,'bold'),
                  activebackground='white',activeforeground='black',bd=3,relief='flat',cursor='hand2',
                           command=self.mainclear)
          self.btn2.place(x=155,y=160)
