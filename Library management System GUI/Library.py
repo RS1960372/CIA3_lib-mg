@@ -10,17 +10,15 @@ from datetime import datetime
 from datetime import timedelta
 import smtplib
 
-db=sqlite3.connect('admin.db') #login data table
-dd=sqlite3.connect('storebook.db') #item data table
-dc=sqlite3.connect('students.db') #student data table
-#--login pg tk top panel--#
+db=sqlite3.connect('admin.db')
+dd=sqlite3.connect('storebook.db')
+dc=sqlite3.connect('students.db')
+
 root = Tk()
-root.title("Library Data Management System")
-root.iconbitmap("app-tl-icon.ico")
+root.title("Library Management System")
+root.iconbitmap("aa.ico")
 root.geometry("900x500+300+150")
 root.resizable(0, 0)
-#----login pg tk top panel end----#
-
 
 class maincode:
 
@@ -34,48 +32,84 @@ class maincode:
          self.ab = cursor.fetchone()
          if self.ab!=None:
                #messagebox.showinfo('Library System',ab[1])
-               #--after login user page--#
-             self.under_fm=Frame(root,height=500,width=900,bg='Black')
+             self.under_fm=Frame(root,height=500,width=900,bg='#fff')
              self.under_fm.place(x=0,y=0)
-             self.fm2=Frame(root,bg='Black',height=80,width=900)
+             self.fm2=Frame(root,bg='#0f624c',height=80,width=900)
              self.fm2.place(x=0,y=0)
 
              #  lgo=Canvas(fm2,bg='#0f624c',height=200,width=100,bd=4,relief='flat')
              #  lgo.place(x=0,y=0)
 
-             self.lbb=Label(self.fm2,bg='Grey')
+             self.lbb=Label(self.fm2,bg='#0f624c')
              self.lbb.place(x=15,y=5)
              self.ig=PhotoImage(file='library.png')
              self.lbb.config(image=self.ig)
-             self.lb3=Label(self.fm2,text='LIBRARY DATA MANAGEMENT SYSTEM ',fg='Black',bg='GREY',font=('Arial',30,'bold'))
-             self.lb3.place(x=100,y=17)
+             self.lb3=Label(self.fm2,text='DASHBOARD',fg='White',bg='#0f624c',font=('Arial',30,'bold'))
+             self.lb3.place(x=325,y=17)
 
 
-             #-- for name in loged in page --#
+             #----------------------------name------------------------
 
-             self.name=Label(root,text="NAME : ",bg='GREY',fg="black",font=('Arial',10,'bold'))
+             self.name=Label(root,text="Name : ",bg='#fff',fg="black",font=('Arial',10,'bold'))
              self.name.place(x=5,y=83)
-             self.name1=Label(root,text=self.ab[1],fg='black',bg='grey',font=('Arial',10,'bold'))
+             self.name1=Label(root,text=self.ab[1],fg='black',bg='#fff',font=('Arial',10,'bold'))
              self.name1.place(x=60,y=83)
 
              #------------------------date-------------------------
 
              self.today=date.today()
-             self.dat=Label(root,text='Date : ',bg='Grey',fg='black',font=('Arial',10,'bold'))
+             self.dat=Label(root,text='Date : ',bg='#fff',fg='black',font=('Arial',10,'bold'))
              self.dat.place(x=740,y=83)
-
-             self.dat2 = Label(root, text=self.today, bg='Grey', fg='black', font=('Arial', 10, 'bold'))
+             self.dat2 = Label(root, text=self.today, bg='#fff', fg='black', font=('Arial', 10, 'bold'))
              self.dat2.place(x=790, y=83)
 
              self.cur()
 
-         else: #--else for invalid login--#
-               messagebox.showerror('LDMS', 'Invalid ID/Password')
+         else:
+               messagebox.showerror('Library System', 'Your ID or Password is not Valid')
              #---------------------------------------------------------
      def cur(self):
-             self.fm3=Frame(root,bg='grey',width=900,height=390)
+             self.fm3=Frame(root,bg='#fff',width=900,height=390)
              self.fm3.place(x=0,y=110)
 
+             #------------------------Clock---------------------------
+
+             def clock():
+                 h = str(time.strftime("%H"))
+                 m = str(time.strftime("%M"))
+                 s = str(time.strftime("%S"))
+
+                 if int(h) >=12 and int(m) >=0:
+                       self.lb7_hr.config(text="PM")
+
+                 #if int(h) > 12:
+                     #h = str(int(h) // 12)
+
+                 self.lb1_hr.config(text=h)
+                 self.lb3_hr.config(text=m)
+                 self.lb5_hr.config(text=s)
+
+                 self.lb1_hr.after(200, clock)
+
+             self.lb1_hr = Label(self.fm3, text='12', font=('times new roman', 20, 'bold'), bg='#fc1c1c', fg='white')
+             self.lb1_hr.place(x=560, y=0, width=60, height=30)
+
+
+             self.lb3_hr = Label(self.fm3, text='05', font=('times new roman', 20, 'bold'), bg='#0ee38b', fg='white')
+             self.lb3_hr.place(x=630, y=0, width=60, height=30)
+
+
+             self.lb5_hr = Label(self.fm3, text='37', font=('times new roman', 20, 'bold'), bg='#2b1dff', fg='white')
+             self.lb5_hr.place(x=700, y=0, width=60, height=30)
+
+
+             self.lb7_hr = Label(self.fm3, text='AM', font=('times new roman', 17, 'bold'), bg='#2b1dff', fg='white')
+             self.lb7_hr.place(x=770, y=0, width=60, height=30)
+
+
+             clock()
+
+             #-------------------------------clock closed------------------------
 
 
              self.canvas8 = Canvas(self.fm3, bg='black', width=400, height=300)
@@ -83,13 +117,13 @@ class maincode:
              self.photo9=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\bb.png")
              self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
 
-             self.develop=Label(self.fm3,text='Library Managment System Test',bg='#fff',fg='blue',
+             self.develop=Label(self.fm3,text='Library Managment System',bg='#fff',fg='blue',
                                font=('Cursive',12,'italic','bold'))
              self.develop.place(x=600,y=350)
 
              #-----------------addbutton-----------------
 
-             self.bt1=Button(self.fm3,text='  ADD ITEM',fg='#fff',bg='#ff0076',font=('Arial',15,'bold'),width=170,
+             self.bt1=Button(self.fm3,text='  Add Books',fg='#fff',bg='#ff0076',font=('Arial',15,'bold'),width=170,
                           height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2')
              self.bt1.place(x=40,y=40)
              self.logo = PhotoImage(file='bt1.png')
@@ -1020,20 +1054,20 @@ class maincode:
 
      def code(self):
 
-         self.fm=Frame(root,height=500,width=900,bg='black')
+         self.fm=Frame(root,height=500,width=900,bg='white')
          self.fm.place(x=0,y=0)
 
-         self.canvas=Canvas(self.fm,height=500,width=900,bg='Black')
+         self.canvas=Canvas(self.fm,height=500,width=900,bg='#22224b')
          self.canvas.place(x=0,y=0)
 
-         #self.photo=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\images (17).png")
-         #self.canvas.create_image(70,45,image=self.photo,anchor=NW)
+         self.photo=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\images (17).png")
+         self.canvas.create_image(70,45,image=self.photo,anchor=NW)
 
-         self.fm1=Frame(self.canvas,height=300,width=300,bg='Grey',bd=3,relief='ridge')
-         self.fm1.place(x=300,y=110)
+         self.fm1=Frame(self.canvas,height=260,width=300,bg='white',bd=3,relief='ridge')
+         self.fm1.place(x=300,y=170)
 
-        # self.photo1=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\dd.png")
-         #self.canvas.create_image(330,5,image=self.photo1,anchor=NW)
+         self.photo1=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\dd.png")
+         self.canvas.create_image(330,5,image=self.photo1,anchor=NW)
 
 
 
@@ -1050,7 +1084,7 @@ class maincode:
          self.e2.place(x=100,y=100)
 
 
-         self.btn1=Button(self.fm1,text='  Login',fg='Grey',bg='Black',width=100,font=('Arial',11,'bold'),
+         self.btn1=Button(self.fm1,text='  login',fg='white',bg='red',width=100,font=('Arial',11,'bold'),
                  activebackground='white',activeforeground='black',command=self.login,bd=3,relief='flat',cursor='hand2')
          self.btn1.place(x=25,y=160)
          self.logo = PhotoImage(file='user.png')
@@ -1059,7 +1093,7 @@ class maincode:
          self.btn1.config(image=self.small_logo)
 
 
-         self.btn2=Button(self.fm1,text='  Clear',fg='white',bg='Black',width=100,font=('Arial',11,'bold'),
+         self.btn2=Button(self.fm1,text='  Clear',fg='white',bg='blue',width=100,font=('Arial',11,'bold'),
                  activebackground='white',activeforeground='black',bd=3,relief='flat',cursor='hand2',
                           command=self.mainclear)
          self.btn2.place(x=155,y=160)
