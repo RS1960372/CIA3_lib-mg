@@ -15,7 +15,7 @@ dd=sqlite3.connect('storebook.db')
 dc=sqlite3.connect('students.db')
 
 root = Tk()
-root.title("Library Management System")
+root.title("Library Data Management System")
 root.iconbitmap("aa.ico")
 root.geometry("900x500+300+150")
 root.resizable(0, 0)
@@ -31,45 +31,45 @@ class maincode:
          db.commit()
          self.ab = cursor.fetchone()
          if self.ab!=None:
-               #messagebox.showinfo('Library System',ab[1])
-             self.under_fm=Frame(root,height=500,width=900,bg='#fff')
+               #messagebox.showinfo('Library Data Management System',ab[1])
+             self.under_fm=Frame(root,height=500,width=900,bg='Black')
              self.under_fm.place(x=0,y=0)
-             self.fm2=Frame(root,bg='#0f624c',height=80,width=900)
+             self.fm2=Frame(root,bg='Grey',height=80,width=900)
              self.fm2.place(x=0,y=0)
 
              #  lgo=Canvas(fm2,bg='#0f624c',height=200,width=100,bd=4,relief='flat')
              #  lgo.place(x=0,y=0)
 
-             self.lbb=Label(self.fm2,bg='#0f624c')
+             self.lbb=Label(self.fm2,bg='Grey')
              self.lbb.place(x=15,y=5)
              self.ig=PhotoImage(file='library.png')
              self.lbb.config(image=self.ig)
-             self.lb3=Label(self.fm2,text='DASHBOARD',fg='White',bg='#0f624c',font=('Arial',30,'bold'))
-             self.lb3.place(x=325,y=17)
+             self.lb3=Label(self.fm2,text='LIBRARY DATA MANAGEMENT SYSTEM',fg='Black',bg='White',font=('Arial',30,'bold'))
+             self.lb3.place(x=100,y=17)
 
 
              #----------------------------name------------------------
 
-             self.name=Label(root,text="Name : ",bg='#fff',fg="black",font=('Arial',10,'bold'))
+             self.name=Label(root,text="Name : ",bg='Grey',fg="Black",font=('Arial',10,'bold'))
              self.name.place(x=5,y=83)
-             self.name1=Label(root,text=self.ab[1],fg='black',bg='#fff',font=('Arial',10,'bold'))
+             self.name1=Label(root,text=self.ab[1],fg='black',bg='Grey',font=('Arial',10,'bold'))
              self.name1.place(x=60,y=83)
 
              #------------------------date-------------------------
 
              self.today=date.today()
-             self.dat=Label(root,text='Date : ',bg='#fff',fg='black',font=('Arial',10,'bold'))
+             self.dat=Label(root,text='Date : ',bg='Grey',fg='black',font=('Arial',10,'bold'))
              self.dat.place(x=740,y=83)
-             self.dat2 = Label(root, text=self.today, bg='#fff', fg='black', font=('Arial', 10, 'bold'))
+             self.dat2 = Label(root, text=self.today, bg='Grey', fg='black', font=('Arial', 10, 'bold'))
              self.dat2.place(x=790, y=83)
 
              self.cur()
 
          else:
-               messagebox.showerror('Library System', 'Your ID or Password is not Valid')
+               messagebox.showerror('Library Data Management System', 'Your ID or Password is not Valid')
              #---------------------------------------------------------
      def cur(self):
-             self.fm3=Frame(root,bg='#fff',width=900,height=390)
+             self.fm3=Frame(root,bg='Black',width=900,height=390)
              self.fm3.place(x=0,y=110)
 
              #------------------------Clock---------------------------
@@ -91,19 +91,19 @@ class maincode:
 
                  self.lb1_hr.after(200, clock)
 
-             self.lb1_hr = Label(self.fm3, text='12', font=('times new roman', 20, 'bold'), bg='#fc1c1c', fg='white')
+             self.lb1_hr = Label(self.fm3, text='12', font=('times new roman', 20, 'bold'), bg='Grey', fg='Black')
              self.lb1_hr.place(x=560, y=0, width=60, height=30)
 
 
-             self.lb3_hr = Label(self.fm3, text='05', font=('times new roman', 20, 'bold'), bg='#0ee38b', fg='white')
+             self.lb3_hr = Label(self.fm3, text='05', font=('times new roman', 20, 'bold'), bg='Grey', fg='Black')
              self.lb3_hr.place(x=630, y=0, width=60, height=30)
 
 
-             self.lb5_hr = Label(self.fm3, text='37', font=('times new roman', 20, 'bold'), bg='#2b1dff', fg='white')
+             self.lb5_hr = Label(self.fm3, text='37', font=('times new roman', 20, 'bold'), bg='Grey', fg='Black')
              self.lb5_hr.place(x=700, y=0, width=60, height=30)
 
 
-             self.lb7_hr = Label(self.fm3, text='AM', font=('times new roman', 17, 'bold'), bg='#2b1dff', fg='white')
+             self.lb7_hr = Label(self.fm3, text='AM', font=('times new roman', 17, 'bold'), bg='Grey', fg='Black')
              self.lb7_hr.place(x=770, y=0, width=60, height=30)
 
 
@@ -117,13 +117,14 @@ class maincode:
              self.photo9=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\bb.png")
              self.canvas8.create_image(0,0,image=self.photo9,anchor=NW)
 
-             self.develop=Label(self.fm3,text='Library Managment System',bg='#fff',fg='blue',
-                               font=('Cursive',12,'italic','bold'))
-             self.develop.place(x=600,y=350)
+
+             # self.develop=Label(self.fm3,text='Library Data Management System',bg='#fff',fg='blue',
+             #                  font=('Cursive',12,'italic','bold'))
+             # self.develop.place(x=600,y=350)
 
              #-----------------addbutton-----------------
 
-             self.bt1=Button(self.fm3,text='  Add Books',fg='#fff',bg='#ff0076',font=('Arial',15,'bold'),width=170,
+             self.bt1=Button(self.fm3,text='  ADD',fg='Black',bg='Grey',font=('Arial',15,'bold'),width=170,
                           height=0,bd=7,relief='flat',command=self.addbook,cursor='hand2')
              self.bt1.place(x=40,y=40)
              self.logo = PhotoImage(file='bt1.png')
@@ -133,7 +134,7 @@ class maincode:
 
              #-------------------------Issuebutton--------------
 
-             self.bt2 = Button(self.fm3, text='  Issue Books', fg='#fff', bg='#ff0076', font=('Arial', 15, 'bold'),
+             self.bt2 = Button(self.fm3, text=' BORROW', fg='Black', bg='Grey', font=('Arial', 15, 'bold'),
                             width=170,height=0, bd=7,relief='flat',command=self.issuebook,cursor='hand2')
              self.bt2.place(x=250, y=40)
              self.log = PhotoImage(file='bt2.png')
@@ -143,7 +144,7 @@ class maincode:
 
              #---------------------------Editbutton----------------
 
-             self.bt3 = Button(self.fm3, text='  Edit Books', fg='#fff', bg='#ff0076', font=('Arial', 15, 'bold'),
+             self.bt3 = Button(self.fm3, text='  EDIT', fg='Black', bg='Grey', font=('Arial', 15, 'bold'),
                            width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.edit)
              self.bt3.place(x=40, y=120)
              self.logb = PhotoImage(file='bt3.png')
@@ -153,7 +154,7 @@ class maincode:
 
              #-----------------------------Returnbutton----------------
 
-             self.bt4 = Button(self.fm3, text='  Return Books', fg='#fff', bg='#ff0076', font=('Arial', 15, 'bold'),
+             self.bt4 = Button(self.fm3, text='  RETURN', fg='Black', bg='Grey', font=('Arial', 15, 'bold'),
                           width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.return_book)
              self.bt4.place(x=250, y=120)
              self.log4 = PhotoImage(file='bt4.png')
@@ -163,7 +164,7 @@ class maincode:
 
              #----------------------Deletebutton---------------------
 
-             self.bt5 = Button(self.fm3, text=' Delete Books', fg='#fff', bg='#ff0076', font=('Arial', 15, 'bold'),
+             self.bt5 = Button(self.fm3, text='  DELETE', fg='Black', bg='Grey', font=('Arial', 15, 'bold'),
                           width=170,height=0,bd=7,relief='flat',cursor='hand2',command=self.delete)
              self.bt5.place(x=40, y=200)
              self.log5 = PhotoImage(file='bt5.png')
@@ -171,9 +172,9 @@ class maincode:
              self.small_log5 = self.log5.subsample(1, 1)
              self.bt5.config(image=self.small_log5)
 
-             #--------------------Show Button-----------------------------
+             #--------------------Exhibit Button-----------------------------
 
-             self.bt6 = Button(self.fm3, text='  Show Books', fg='#fff', bg='#ff0076', font=('Arial', 15, 'bold'),
+             self.bt6 = Button(self.fm3, text='  EXHIBIT', fg='Black', bg='Grey', font=('Arial', 15, 'bold'),
                            width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.show)
              self.bt6.place(x=250, y=200)
              self.log6 = PhotoImage(file='bt6.png')
@@ -183,7 +184,7 @@ class maincode:
 
              #-------------------------Seearch Button------------------
 
-             self.bt7 = Button(self.fm3, text=' Search Books', fg='#fff', bg='#ff0076', font=('Arial', 15, 'bold'),
+             self.bt7 = Button(self.fm3, text='  SEARCH', fg='Black', bg='Grey', font=('Arial', 15, 'bold'),
                           width=170,height=0,bd=7, relief='flat',cursor='hand2',command=self.search)
              self.bt7.place(x=40, y=280)
              self.log7 = PhotoImage(file='bt7.png')
@@ -194,7 +195,7 @@ class maincode:
              #---------------------Exit Button-----------------------
              try:
 
-                self.bt8 = Button(self.fm3, text='  log Out', fg='#fff', bg='#ff0076', font=('Arial', 15, 'bold'),
+                self.bt8 = Button(self.fm3, text='  EXIT', fg='Black', bg='Grey', font=('Arial', 15, 'bold'),
                                width=170,
                           height=0, bd=7, relief='flat',cursor='hand2',command=self.code)
                 self.bt8.place(x=250, y=280)
@@ -230,11 +231,11 @@ class maincode:
 
              def book(self):
 
-                 self.fm=Frame(root,bg='#a7ecd9',width=900,height=390)
+                 self.fm=Frame(root,bg='Grey',width=900,height=390)
                  self.fm.place(x=0,y=110)
                  self.fm1=Frame(self.fm,bg='#fff',width=500,height=360,bd=5,relief='flat')
                  self.fm1.place(x=200,y=15)
-                 self.backbt = Button(self.fm, width=60, bg='#a7ecd9',activebackground='#a7ecd9', bd=0, relief='flat',\
+                 self.backbt = Button(self.fm, width=60, bg='Grey',activebackground='White', bd=0, relief='flat',\
                                                                                                  command=self.cur)
                  self.backbt.place(x=0, y=0)
                  self.log = PhotoImage(file='back.png')
@@ -243,9 +244,9 @@ class maincode:
                  self.backbt.config(image=self.small_log)
 
                  #---------------------------Label---------------------------------
-                 self.f=Frame(self.fm1,bg='#0f624c',width=490,height=35)
+                 self.f=Frame(self.fm1,bg='Grey',width=490,height=35)
                  self.f.place(x=0,y=0)
-                 self.ll=Label(self.f,text='ADD BOOKS',fg='#fff',bg='#0f624c',font=('Arial',12,'bold'))
+                 self.ll=Label(self.f,text='ADD BOOKS',fg='Black',bg='Grey',font=('Arial',12,'bold'))
                  self.ll.place(x=200,y=6)
                  self.lb=Label(self.fm1,text='ID',fg='black',bg='#fff',font=('Arial',10,'bold'))
                  self.lb.place(x=70,y=90)
@@ -271,7 +272,7 @@ class maincode:
                  self.ee5=Entry(self.fm1,width=25,bd=4,relief='groove',font=('arial',12,'bold'))
                  self.ee5.place(x=180,y=250)
 
-                 self.bt=Button(self.fm1,text='Submit',width=41,bg='red',fg='#fff',font=('Arial',10,'bold'),bd=5,
+                 self.bt=Button(self.fm1,text='Submit',width=41,bg='Grey',fg='Black',font=('Arial',10,'bold'),bd=5,
                           relief='flat',command=self.submit1)
                  self.bt.place(x=70,y=290)
 
@@ -306,27 +307,27 @@ class maincode:
 
         #-----------xxxxxxxxxxxx--------close add book---xxxxxxxxxxxxxxxxxxxx---------------
 
-        #--------------------------------Issue Books---------------------------------
+        #--------------------------------Borrow Books---------------------------------
      def issuebook(self):
          class test(maincode):
               max=0
               n = 1
               def issue(self):
-                  self.f = Frame(root, bg='#a7ecd9', width=900, height=390)
+                  self.f = Frame(root, bg='Black', width=900, height=390)
                   self.f.place(x=0, y=110)
 
-                  self.fmi=Canvas(self.f,bg='#fff',width=900,height=390,bd=0,relief='flat')
+                  self.fmi=Canvas(self.f,bg='Grey',width=900,height=390,bd=0,relief='flat')
                   self.fmi.place(x=0,y=0)
                   #self.img=PhotoImage(file='ig.png')
                   #self.fmi.create_image(0,0,image=self.img,anchor=NW)
 
-                  self.fc=Frame(self.fmi,bg='#fff',width=330,height=230,bd=4,relief='flat')
+                  self.fc=Frame(self.fmi,bg='Grey',width=330,height=230,bd=4,relief='flat')
                   self.fc.place(x=70,y=20)
 
-                  self.ffb=Frame(self.fc,bg='#0f624c',bd=2,relief='flat',width=330,height=35)
+                  self.ffb=Frame(self.fc,bg='Black',bd=2,relief='flat',width=330,height=35)
                   self.ffb.place(x=0,y=0)
 
-                  self.lc=Label(self.ffb,text='STUDENT  INFORMATION',bg='#0f624c',fg='#fff',font=('Arial',12,'bold'))
+                  self.lc=Label(self.ffb,text='ENTER INFORMATION',bg='Black',fg='#fff',font=('Arial',12,'bold'))
                   self.lc.place(x=55,y=5)
 
                   self.lb=Label(self.fc,text='Roll-No',bg='#fff',fg='black',font=('Arial',10,'bold'))
@@ -339,15 +340,15 @@ class maincode:
                   self.lb.place(x=15, y=120)
                   self.em2 = Entry(self.fc, width=30, bd=5, relief='ridge', font=('Arial', 8, 'bold'))
                   self.em2.place(x=105, y=120)
-                  self.bt = Button(self.fc, text='Submit', width=14, bg='red', fg='#fff', font=('Arial', 10, 'bold'),
+                  self.bt = Button(self.fc, text='Submit', width=14, bg='White', fg='Black', font=('Arial', 10, 'bold'),
                                  bd=5,relief='flat',command=self.check)
                   self.bt.place(x=15,y=180)
 
-                  self.bt3=Button(self.fc,text='Clear',width=14,bg='blue',fg='#fff',font=('arial',10,'bold'),bd=5,
+                  self.bt3=Button(self.fc,text='Clear',width=14,bg='White',fg='Black',font=('arial',10,'bold'),bd=5,
                             relief='flat',command=self.clr)
                   self.bt3.place(x=165,y=180)
 
-                  self.backbt = Button(self.fmi,width=60, bg='#fff',activebackground='#fff',bd=0, relief='flat',
+                  self.backbt = Button(self.fmi,width=60, bg='Grey',activebackground='White',bd=0, relief='flat',
                                        command=self.cur)
                   self.backbt.place(x=5, y=5)
                   self.log = PhotoImage(file='back.png')
@@ -384,11 +385,11 @@ class maincode:
                         self.lb10.place(x=130, y=335)
 
 
-                        self.fr=Frame(self.fmi,bg='#fff',bd=5,relief='flat',width=450,height=320)
+                        self.fr=Frame(self.fmi,bg='Grey',bd=5,relief='flat',width=450,height=320)
                         self.fr.place(x=420,y=20)
-                        self.ff=Frame(self.fr,bg='#0f624c',bd=2,relief='flat',width=450,height=35)
+                        self.ff=Frame(self.fr,bg='Black',bd=2,relief='flat',width=450,height=35)
                         self.ff.place(x=0,y=0)
-                        self.lb=Label(self.ff,text='ISSUE BOOK',bg='#0f624c',fg='#fff',font=('Arial',12,'bold'))
+                        self.lb=Label(self.ff,text='ISSUE BOOK',bg='Black',fg='#fff',font=('Arial',12,'bold'))
                         self.lb.place(x=165,y=5)
                         self.tt=Label(self.fr,text='Book-ID',bg='#fff',fg='black',font=('arial',10,'bold'))
                         self.tt.place(x=50,y=60)
@@ -398,9 +399,9 @@ class maincode:
                         self.ttp.place(x=50, y=110)
                         self.e2 = Entry(self.fr, width=30, bd=5, relief='ridge', font=('Arial', 8, 'bold'))
                         self.e2.place(x=160, y=110)
-                        self.bt1 = Button(self.fr, text='Submit', width=35, bg='#0f624c', fg='#fff', font=('Arial', 10,
+                        self.bt1 = Button(self.fr, text='Submit', width=15, bg='White', fg='Black', font=('Arial', 10,
                                                                     'bold'),bd=5,relief='flat',command=self.data)
-                        self.bt1.place(x=60, y=160)
+                        self.bt1.place(x=170, y=160)
 
                         '''self.bt1 = Button(self.fr, text='Clear', width=13, bg='blue', fg='#fff', font=('Arial', 10,
                                                                                                   'bold'), bd=5,
@@ -509,7 +510,7 @@ class maincode:
 
 
                         if self.max>=3:
-                              messagebox.showerror('Library System','SIR, MINIMUM 3 BOOKS ARE REQUIRED!')
+                              messagebox.showerror('Library Data Management System','MAX 3 BOOKS ONLY')
 
 
                         self.label = Label(self.fr, text='ADD MORE BOOKS ', bg='#fff', fg='black', font=('arial', 10,
@@ -526,11 +527,11 @@ class maincode:
                         self.it2.place(x=280, y=220)
 
                         #------------------------ISSUED button-----------------------------
-                        self.button1 = Button(self.boot, text='Issued', bg='red', fg='#fff', width=30, height=0,
+                        self.button1 = Button(self.boot, text='Issued', bg='Grey', fg='Black', width=30, height=0,
                                               font=('Arial', 8, 'bold'), command=self.issued)
                         self.button1.place(x=30, y=610)
 
-                        self.btn = Button(self.boot, text='Send mail', bg='blue', fg='#fff', width=30, height=0,
+                        self.btn = Button(self.boot, text='Send mail', bg='Grey', fg='Black', width=30, height=0,
                                               font=('Arial', 8, 'bold'), command=self.mail)
                         self.btn.place(x=30, y=650)
 
@@ -544,10 +545,10 @@ class maincode:
                         self.cal.place(x=20,y=380)
 
 
-                        btn1 = Button(self.boot, text="Confirm Date",command=self.get_data,  bg='#ff0076',
+                        btn1 = Button(self.boot, text="Confirm Date",command=self.get_data,  bg='Grey',
                                       font=('arial', 10,
                                                                                                     'bold'),
-                                      fg='#fff', relief='flat')
+                                      fg='Black', relief='flat')
                         btn1.place(x=90,y=575)
 
 
@@ -564,7 +565,7 @@ class maincode:
               def yes(self):
 
                     self.n=self.n+1
-                    self.bt1 = Button(self.fr, text='Submit', width=35, bg='#0f624c', fg='#fff', font=('Arial', 10,
+                    self.bt1 = Button(self.fr, text='Submit', width=35, bg='White', fg='Black', font=('Arial', 10,
                                                         'bold'), bd=5,relief='flat',command=self.data, state=ACTIVE)
                     self.bt1.place(x=60, y=160)
 
@@ -575,7 +576,7 @@ class maincode:
 
               def no(self):
 
-                    self.bt1 = Button(self.fr, text='Submit', width=35, bg='#0f624c', fg='#fff', font=('Arial', 10,
+                    self.bt1 = Button(self.fr, text='Submit', width=35, bg='White', fg='Black', font=('Arial', 10,
                                                    'bold'), bd=5,relief='flat',state=DISABLED)
                     self.bt1.place(x=60, y=160)
 
@@ -599,7 +600,7 @@ class maincode:
                                                                                                                "WHERE Roll_no='"+self.ai+"' or ERP_ID='"+self.b+"'")
                     dc.commit()
 
-                    messagebox.showinfo('Library System', 'YOUR BOOK ISSUED')
+                    messagebox.showinfo('Library Data Management System', 'BOOK BORROW DONE')
               def mail(self):
 
                     self.baby=self.em2.get()
@@ -618,7 +619,7 @@ class maincode:
                         server.login(sender, password)
                         server.sendmail(sender, reciever, message)
                         print("ok")
-                        messagebox.showinfo("Library System","Send mail Successfully !")
+                        messagebox.showinfo("Library Data Management System","Send mail Successfully !")
                     except:
                          pass
          obk=test()
@@ -631,24 +632,24 @@ class maincode:
                def edbooks(self):
 
 
-                     self.ffm=Frame(root,bg='#a7ecd9',width=900,height=390)
+                     self.ffm=Frame(root,bg='Grey',width=900,height=390)
                      self.ffm.place(x=0,y=110)
-                     self.fm1 = Frame(self.ffm, bg='#fff', width=500, height=200, bd=5, relief='flat')
+                     self.fm1 = Frame(self.ffm, bg='White', width=500, height=200, bd=5, relief='flat')
                      self.fm1.place(x=200, y=15)
-                     self.ed = Frame(self.fm1, bg='#0f624c', bd=0, relief='flat', width=490, height=35)
+                     self.ed = Frame(self.fm1, bg='Grey', bd=0, relief='flat', width=490, height=35)
                      self.ed.place(x=0,y=0)
-                     self.lab = Label(self.ed, text='EDIT BOOKS DETAILS', bg='#0f624c', fg='#fff', font=('Arial', 12,
+                     self.lab = Label(self.ed, text='EDIT BOOKS DETAILS', bg='Grey', fg='Black', font=('Arial', 12,
                                                                                                     'bold'))
                      self.lab.place(x=165, y=5)
                      self.label3=Label(self.fm1,text='Book ID',bg='#fff',fg='black',font=('arial',10,'bold'))
                      self.label3.place(x=85,y=65)
                      self.entry=Entry(self.fm1,width=30,bd=4,relief='groove',font=('arial',8,'bold'))
                      self.entry.place(x=188,y=65)
-                     self.button7 = Button(self.fm1, text='Search', bg='#0f624c', fg='#fff', width=24, height=0,
+                     self.button7 = Button(self.fm1, text='Search', bg='Grey', fg='Black', width=24, height=0,
                                   font=('Arial', 10, 'bold'),command=self.search)
                      self.button7.place(x=140,y=120)
 
-                     self.backbt = Button(self.ffm, width=60, bg='#a7ecd9',activebackground='#a7ecd9',
+                     self.backbt = Button(self.ffm, width=60, bg='Grey',activebackground='White',
                                           bd=0, relief='flat', command=self.cur)
                      self.backbt.place(x=0, y=0)
                      self.log = PhotoImage(file='back.png')
@@ -669,29 +670,29 @@ class maincode:
                      if self.val!=None:
 
                           self.edcat=Tk()
-                          self.edcat.title("Library System")
+                          self.edcat.title("Library Data Management System")
                           self.edcat.geometry("300x320+590+320")
                           self.edcat.configure(bg='#fff')
                           self.edcat.iconbitmap("aa.ico")
 
 
-                          self.fc=Frame(self.edcat,bg='#0f624c',width=300,height=30)
+                          self.fc=Frame(self.edcat,bg='Grey',width=300,height=30)
                           self.fc.place(x=0,y=0)
-                          self.lab=Label(self.fc,bg='#0f624c',fg='#fff',text='EDIT BOOKS',font=('arial',10,'bold'))
+                          self.lab=Label(self.fc,bg='Grey',fg='Black',text='EDIT BOOKS',font=('arial',10,'bold'))
                           self.lab.place(x=112,y=5)
-                          self.labid = Label(self.edcat, bg='#fff', fg='black', text='Book ID', font=('arial', 10,
+                          self.labid = Label(self.edcat, bg='White', fg='black', text='Book ID', font=('arial', 10,
                                                                                                     'bold'))
                           self.labid.place(x=30, y=45)
-                          self.labti = Label(self.edcat, bg='#fff', fg='black', text='Title', font=('arial', 10,
+                          self.labti = Label(self.edcat, bg='White', fg='black', text='Title', font=('arial', 10,
                                                                                                     'bold'))
                           self.labti.place(x=30, y=90)
-                          self.labaut = Label(self.edcat, bg='#fff', fg='black', text='Author', font=('arial', 10,
+                          self.labaut = Label(self.edcat, bg='White', fg='black', text='Author', font=('arial', 10,
                                                                                                     'bold'))
                           self.labaut.place(x=30, y=135)
-                          self.labed = Label(self.edcat, bg='#fff', fg='black', text='Edition', font=('arial', 10,
+                          self.labed = Label(self.edcat, bg='White', fg='black', text='Edition', font=('arial', 10,
                                                                                                     'bold'))
                           self.labed.place(x=30, y=180)
-                          self.labpr = Label(self.edcat, bg='#fff', fg='black', text='Price', font=('arial', 10,
+                          self.labpr = Label(self.edcat, bg='White', fg='black', text='Price', font=('arial', 10,
                                                                                                     'bold'))
                           self.labpr.place(x=30, y=225)
 
@@ -708,7 +709,7 @@ class maincode:
                           self.en4.place(x=100, y=180)
                           self.en5 = Entry(self.edcat, width=25, bd=4, relief='groove',font=('arial',8,'bold'))
                           self.en5.place(x=100, y=225)
-                          self.butt = Button(self.edcat, text='Submit', bg='#0f624c', fg='#fff', width=20, height=0,
+                          self.butt = Button(self.edcat, text='Submit', bg='Grey', fg='Black', width=20, height=0,
                                       font=('Arial', 10, 'bold'),command=self.savedit)
                           self.butt.place(x=67, y=270)
 
@@ -723,7 +724,7 @@ class maincode:
                           self.edcat.mainloop()
 
                      else:
-                          messagebox.showerror('Library System','PLEASE! CORRECT BOOK ID')
+                          messagebox.showerror('Library Data Management System','PLEASE! CORRECT BOOK ID')
 
                 #-----------------BOKK is Updated-----------------
 
@@ -738,7 +739,7 @@ class maincode:
                      cursor= dd.cursor()
                      cursor.execute("UPDATE stbook SET Book_ID='"+self.id+"', Title='"+self.ti+"',Author='"+self.au+"',Edition='"+self.ed+"',Price='"+self.pi+"' WHERE Book_ID='"+self.datas+"'")
                      dd.commit()
-                     messagebox.showinfo('Library System','YOUR DATA IS UPDATED!')
+                     messagebox.showinfo('Library Data Management System','YOUR DATA IS UPDATED!')
 
          obj=editing()
          obj.edbooks()
@@ -751,23 +752,23 @@ class maincode:
          class retu(maincode):
 
              def __init__(self):
-                 self.frame=Frame(root,bd=0,relief='flat',bg='#a7ecd9',width=900,height=390)
+                 self.frame=Frame(root,bd=0,relief='flat',bg='Grey',width=900,height=390)
                  self.frame.place(x=0,y=110)
                  self.f1 = Frame(self.frame, bg='#fff', width=500, height=200, bd=5, relief='flat')
                  self.f1.place(x=200, y=15)
-                 self.ed = Frame(self.f1, bg='#0f624c', bd=0, relief='flat', width=490, height=35)
+                 self.ed = Frame(self.f1, bg='Grey', bd=0, relief='flat', width=490, height=35)
                  self.ed.place(x=0, y=0)
-                 self.lac = Label(self.ed, text='RETURN BOOKS ', bg='#0f624c', fg='#fff', font=('Arial', 12, 'bold'))
+                 self.lac = Label(self.ed, text='RETURN BOOKS ', bg='Grey', fg='Black', font=('Arial', 12, 'bold'))
                  self.lac.place(x=175, y=5)
                  self.label8 = Label(self.f1, text='ERP ID', bg='#fff', fg='black', font=('arial', 10, 'bold'))
                  self.label8.place(x=85, y=65)
                  self.entry4 = Entry(self.f1, width=30, bd=4, relief='groove', font=('arial', 8, 'bold'))
                  self.entry4.place(x=188, y=65)
-                 self.button9 = Button(self.f1, text='Return', bg='#0f624c', fg='#fff', width=24, height=0,
+                 self.button9 = Button(self.f1, text='Return', bg='Grey', fg='Black', width=24, height=0,
                                        font=('Arial', 10, 'bold'),command=self.retbook)
                  self.button9.place(x=140, y=120)
 
-                 self.backbt = Button(self.frame, width=60, bg='#a7ecd9', activebackground='#a7ecd9',
+                 self.backbt = Button(self.frame, width=60, bg='Grey', activebackground='White',
                                       bd=0, relief='flat', command=self.cur)
                  self.backbt.place(x=0, y=0)
                  self.log = PhotoImage(file='back.png')
@@ -799,7 +800,7 @@ class maincode:
                      self.tom=Tk()
                      self.tom.geometry("300x250+590+348")
                      self.tom.iconbitmap("aa.ico")
-                     self.tom.title("Library System")
+                     self.tom.title("Library Data Management System")
                      self.tom.resizable(0,0)
                      self.tom.configure(bg="black")
 
@@ -855,7 +856,7 @@ class maincode:
 
 
                  else:
-                     messagebox.showwarning("Library System","YOUR ERP_ID IN NOT FOUND !")
+                     messagebox.showwarning("Library Data Management System","YOUR ERP_ID IN NOT FOUND !")
 
 
          object=retu()
@@ -868,23 +869,23 @@ class maincode:
      def delete(self):
          class dele(maincode):
                def deleteee(self):
-                     self.ff = Frame(root, bg='#a7ecd9', width=900, height=390)
+                     self.ff = Frame(root, bg='Grey', width=900, height=390)
                      self.ff.place(x=0, y=110)
                      self.f1 = Frame(self.ff, bg='#fff', width=500, height=200, bd=5, relief='flat')
                      self.f1.place(x=200, y=15)
-                     self.ed = Frame(self.f1, bg='#0f624c', bd=0, relief='flat', width=490, height=35)
+                     self.ed = Frame(self.f1, bg='Grey', bd=0, relief='flat', width=490, height=35)
                      self.ed.place(x=0, y=0)
-                     self.lac = Label(self.ed, text='DELETE BOOKS ', bg='#0f624c', fg='#fff', font=('Arial', 12,'bold'))
+                     self.lac = Label(self.ed, text='DELETE BOOKS ', bg='Grey', fg='Black', font=('Arial', 12,'bold'))
                      self.lac.place(x=175, y=5)
                      self.label8 = Label(self.f1, text='Book ID', bg='#fff', fg='black', font=('arial', 10, 'bold'))
                      self.label8.place(x=85, y=65)
                      self.entry4 = Entry(self.f1, width=30, bd=4, relief='groove', font=('arial', 8, 'bold'))
                      self.entry4.place(x=188, y=65)
-                     self.button9 = Button(self.f1, text='Delete', bg='#0f624c', fg='#fff', width=24, height=0,
+                     self.button9 = Button(self.f1, text='Delete', bg='Grey', fg='Black', width=24, height=0,
                                   font=('Arial', 10, 'bold'),command=self.deldata)
                      self.button9.place(x=140, y=120)
 
-                     self.backbt = Button(self.ff,width=60, bg='#a7ecd9',activebackground='#a7ecd9',
+                     self.backbt = Button(self.ff,width=60, bg='Grey',activebackground='White',
                                           bd=0, relief='flat', command=self.cur)
                      self.backbt.place(x=0, y=0)
                      self.log = PhotoImage(file='back.png')
@@ -900,9 +901,9 @@ class maincode:
                      dd.commit()
                      self.da=cursor.fetchone()
                      if self.da!=None:
-                          messagebox.showinfo('Library System','YOUR DATA IS DELETED !')
+                          messagebox.showinfo('Library Data Management System','YOUR DATA IS DELETED !')
                      else:
-                          messagebox.showerror('Library System','YOUR DATA IS NOT FOUND !')
+                          messagebox.showerror('Library Data Management System','YOUR DATA IS NOT FOUND !')
 
          occ=dele()
          occ.deleteee()
@@ -916,23 +917,23 @@ class maincode:
          class demt(maincode):
              def delmdata(self):
 
-                 self.fc = Frame(root, bg='#a7ecd9', width=900, height=390)
+                 self.fc = Frame(root, bg='Grey', width=900, height=390)
                  self.fc.place(x=0, y=110)
                  self.fc1 = Frame(self.fc, bg='#fff', width=500, height=200, bd=5, relief='flat')
                  self.fc1.place(x=200, y=15)
-                 self.edm = Frame(self.fc1, bg='#0f624c', bd=0, relief='flat', width=490, height=35)
+                 self.edm = Frame(self.fc1, bg='Grey', bd=0, relief='flat', width=490, height=35)
                  self.edm.place(x=0, y=0)
-                 self.lac = Label(self.edm, text='SEARCH BOOKS ', bg='#0f624c', fg='#fff', font=('Arial', 12, 'bold'))
+                 self.lac = Label(self.edm, text='SEARCH BOOKS ', bg='Grey', fg='Black', font=('Arial', 12, 'bold'))
                  self.lac.place(x=175, y=5)
                  self.label8 = Label(self.fc1, text='Book ID', bg='#fff', fg='black', font=('arial', 10, 'bold'))
                  self.label8.place(x=85, y=65)
                  self.entryl= Entry(self.fc1, width=30, bd=4, relief='groove', font=('arial', 8, 'bold'))
                  self.entryl.place(x=188, y=65)
-                 self.butto = Button(self.fc1, text='Search', bg='#0f624c', fg='#fff', width=24, height=0,
+                 self.butto = Button(self.fc1, text='Search', bg='Grey', fg='Black', width=24, height=0,
                                        font=('Arial', 10, 'bold'),command=self.srch)
                  self.butto.place(x=140, y=120)
 
-                 self.backbt = Button(self.fc,width=60, bg='#a7ecd9',activebackground='#a7ecd9',bd=0, relief='flat', command=self.cur)
+                 self.backbt = Button(self.fc,width=60, bg='Grey',activebackground='White',bd=0, relief='flat', command=self.cur)
                  self.backbt.place(x=0, y=0)
                  self.log = PhotoImage(file='back.png')
                  self.backbt.config(image=self.log, compound=LEFT)
@@ -949,36 +950,36 @@ class maincode:
                  if self.srval!=None:
 
                      self.top=Tk()
-                     self.top.title("Library System")
+                     self.top.title("Library Data Management System")
                      self.top.iconbitmap("aa.ico")
                      self.top.geometry("300x300+600+300")
                      self.top.resizable(0, 0)
-                     self.top.configure(bg='black')
+                     self.top.configure(bg='White')
 
-                     self.frm=Frame(self.top,bg='#0f624c',width=300,height=35)
+                     self.frm=Frame(self.top,bg='Grey',width=300,height=35)
                      self.frm.place(x=0,y=0)
 
-                     self.mnlb=Label(self.frm,bg='#0f624c',fg='#fff',text="Avaliable",font=('arial',11,'bold'))
+                     self.mnlb=Label(self.frm,bg='Grey',fg='Black',text="Avaliable",font=('arial',11,'bold'))
                      self.mnlb.place(x=120,y=5)
 
-                     self.lb1 = Label(self.top, text='Title', bg='black', fg='blue', font=('arial', 12, 'bold'))
+                     self.lb1 = Label(self.top, text='Title:-', bg='black', fg='White', font=('arial', 12, 'bold'))
                      self.lb1.place(x=40,y=80)
-                     self.lb2=Label(self.top,text=self.srval[1],bg='black',fg='blue',font=('arial',12,'bold'))
+                     self.lb2=Label(self.top,text=self.srval[1],bg='black',fg='White',font=('arial',12,'bold'))
                      self.lb2.place(x=120,y=80)
 
-                     self.lb3 = Label(self.top, text='Author', bg='black', fg='blue', font=('arial', 12, 'bold'))
+                     self.lb3 = Label(self.top, text='Author:-', bg='black', fg='White', font=('arial', 12, 'bold'))
                      self.lb3.place(x=40, y=160)
-                     self.lb4 = Label(self.top, text=self.srval[2], bg='black', fg='blue', font=('arial', 12, 'bold'))
+                     self.lb4 = Label(self.top, text=self.srval[2], bg='black', fg='White', font=('arial', 12, 'bold'))
                      self.lb4.place(x=120, y=160)
 
-                     self.lb5 = Label(self.top, text='Edition', bg='black', fg='blue', font=('arial', 12, 'bold'))
+                     self.lb5 = Label(self.top, text='Edition:-', bg='black', fg='White', font=('arial', 12, 'bold'))
                      self.lb5.place(x=40, y=240)
-                     self.lb6 = Label(self.top, text=self.srval[3], bg='black', fg='blue', font=('arial', 12, 'bold'))
+                     self.lb6 = Label(self.top, text=self.srval[3], bg='black', fg='White', font=('arial', 12, 'bold'))
                      self.lb6.place(x=120, y=240)
 
 
                  else:
-                     messagebox.showwarning('Library System','YOUR DATA IS NOT AVAILABLE !')
+                     messagebox.showwarning('Library Data Management System','YOUR DATA IS NOT AVAILABLE !')
 
          object=demt()
          object.delmdata()
@@ -991,15 +992,15 @@ class maincode:
      def show(self):
          class tst(maincode):
              def __init__(self):
-                 self.fc = Frame(root, bg='#a7ecd9', width=900, height=390)
+                 self.fc = Frame(root, bg='Grey', width=900, height=390)
                  self.fc.place(x=0, y=110)
-                 self.popframe=Frame(self.fc,width=900,height=30,bg='#0f624c')
+                 self.popframe=Frame(self.fc,width=900,height=30,bg='Grey')
                  self.popframe.place(x=0,y=0)
-                 self.lbn=Label(self.popframe,bg='#0f624c',text='BOOKS INFORMATION',fg='#fff',font=('arial',10,
+                 self.lbn=Label(self.popframe,bg='White',text='BOOKS INFORMATION',fg='Black',font=('arial',10,
                                                                                                       'bold'))
                  self.lbn.place(x=380,y=5)
 
-                 self.backbt = Button(self.popframe,width=30, bg='#0f624c',activebackground='#0f624c',
+                 self.backbt = Button(self.popframe,width=30, bg='Grey',activebackground='White',
                                       bd=0, relief='flat', command=self.cur)
                  self.backbt.place(x=0, y=0)
                  self.log = PhotoImage(file='back.png')
@@ -1057,19 +1058,19 @@ class maincode:
          self.fm=Frame(root,height=500,width=900,bg='white')
          self.fm.place(x=0,y=0)
 
-         self.canvas=Canvas(self.fm,height=500,width=900,bg='#22224b')
+         self.canvas=Canvas(self.fm,height=500,width=900,bg='black')
          self.canvas.place(x=0,y=0)
 
-         self.photo=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\images (17).png")
-         self.canvas.create_image(70,45,image=self.photo,anchor=NW)
+         self.photo = PhotoImage(
+             file="C:\\Users\\R Sarvesh\\PycharmProjects\\lib-mg-cia3\\Library management System GUI\\images (17).png")
+         self.canvas.create_image(70, 45, image=self.photo, anchor=NW)
 
-         self.fm1=Frame(self.canvas,height=260,width=300,bg='white',bd=3,relief='ridge')
-         self.fm1.place(x=300,y=170)
+         self.fm1 = Frame(self.canvas, height=260, width=300, bg='white', bd=3, relief='ridge')
+         self.fm1.place(x=300, y=170)
 
-         self.photo1=PhotoImage(file="C:\\Users\\R Sarvesh\\PycharmProjects\\coding-hub-tech-py\\Library management System GUI\\dd.png")
-         self.canvas.create_image(330,5,image=self.photo1,anchor=NW)
-
-
+         self.photo1 = PhotoImage(
+             file="C:\\Users\\R Sarvesh\\PycharmProjects\\lib-mg-cia3\\Library management System GUI\\dd.png")
+         self.canvas.create_image(375,50, image=self.photo1, anchor=NW)
 
          self.b1=Label(self.fm1,text='User ID',bg='white',font=('Arial',10,'bold'))
          self.b1.place(x=20,y=42)
@@ -1084,7 +1085,7 @@ class maincode:
          self.e2.place(x=100,y=100)
 
 
-         self.btn1=Button(self.fm1,text='  login',fg='white',bg='red',width=100,font=('Arial',11,'bold'),
+         self.btn1=Button(self.fm1,text='  login',fg='black',bg='grey',width=100,font=('Arial',11,'bold'),
                  activebackground='white',activeforeground='black',command=self.login,bd=3,relief='flat',cursor='hand2')
          self.btn1.place(x=25,y=160)
          self.logo = PhotoImage(file='user.png')
@@ -1093,7 +1094,7 @@ class maincode:
          self.btn1.config(image=self.small_logo)
 
 
-         self.btn2=Button(self.fm1,text='  Clear',fg='white',bg='blue',width=100,font=('Arial',11,'bold'),
+         self.btn2=Button(self.fm1,text='  Clear',fg='black',bg='grey',width=100,font=('Arial',11,'bold'),
                  activebackground='white',activeforeground='black',bd=3,relief='flat',cursor='hand2',
                           command=self.mainclear)
          self.btn2.place(x=155,y=160)
@@ -1104,7 +1105,7 @@ class maincode:
 
          #-----------------------label clicked change password---------------------
 
-         self.forgot=Label(self.fm1,text='forgotten password',fg='red',bg='#fff',activeforeground='black',
+         self.forgot=Label(self.fm1,text='forgot password ?',fg='black',bg='white',activeforeground='black',
                            font=('cursive',9,'bold'))
          self.forgot.place(x=80,y=220)
          self.forgot.bind("<Button>",self.mouseClick)
@@ -1118,15 +1119,15 @@ class maincode:
          self.rog.geometry("400x300+530+280")
          self.rog.iconbitmap("aa.ico")
          self.rog.resizable(0,0)
-         self.rog.configure(bg='#fff')
+         self.rog.configure(bg='White')
 
-         self.label=Label(self.rog,text="New password",bg='#fff',fg='red',font=("cursive",20,'bold'))
-         self.label.place(x=105,y=15)
+         self.label=Label(self.rog,text="UPDATE PASSWORD",bg='White',fg='Black',font=("cursive",20,'bold'))
+         self.label.place(x=65,y=15)
 
-         self.user=Label(self.rog,text='User ID :',bg='#fff',fg='black',font=("cursive",10,'bold'))
+         self.user=Label(self.rog,text='User ID :',bg='White',fg='Black',font=("cursive",10,'bold'))
          self.user.place(x=40,y=95)
 
-         self.user = Label(self.rog, text='New password :', bg='#fff', fg='black', font=("cursive", 10, 'bold'))
+         self.user = Label(self.rog, text='New password :', bg='White', fg='Black', font=("cursive", 10, 'bold'))
          self.user.place(x=40, y=170)
 
          self.e1 = Entry(self.rog, width=24, font=('arial', 9, 'bold'), bd=4, relief='groove')
@@ -1135,7 +1136,7 @@ class maincode:
          self.e2 = Entry(self.rog, width=24, font=('arial', 9, 'bold'), bd=4, relief='groove')
          self.e2.place(x=170, y=170)
 
-         self.btn1 = Button(self.rog, text='Submit', fg='white', bg='#5500ff', width=20, font=('Arial', 13, 'bold'),
+         self.btn1 = Button(self.rog, text='Submit', fg='Black', bg='Grey', width=20, font=('Arial', 13, 'bold'),
                             activebackground='white', activeforeground='black',bd=3, relief='flat',
                             cursor='hand2',command=self.chan_pas)
          self.btn1.place(x=100, y=240)
@@ -1154,7 +1155,7 @@ class maincode:
              cursor = conn.cursor()
              cursor.execute("UPDATE adm SET Password='" + self.b + "' WHERE User_ID='" + self.a + "'")
              conn.commit()
-             messagebox.showinfo("Library System","Your Password is changed !")
+             messagebox.showinfo("Library Data Management System","Your Password is changed !")
          else:
              self.er = Label(self.rog, text='ID is not required', bg='#fff', fg='red', font=("cursive", 8, 'bold'))
              self.er.place(x=170, y=125)
