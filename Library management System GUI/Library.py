@@ -27,7 +27,7 @@ class maincode:
          self.var1 = self.e1.get()
          self.var2 = self.e2.get()
          cursor=db.cursor()
-         cursor.execute("SELECT * FROM adm WHERE User_ID='"+self.var1+"' and Password='"+self.var2+"'")
+         cursor.execute("SELECT * FROM adm WHERE User_ID='"+self.var1+"' and Password='"+self.var2+"'") #--adm for user and p/w db cmd--#
          db.commit()
          self.ab = cursor.fetchone()
          if self.ab!=None:
